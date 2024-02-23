@@ -3,7 +3,7 @@ import { ObjectId, Model, Schema, HydratedDocument, model } from "mongoose";
 export interface ApplicationSubmission{
     tenant: ObjectId
     propertyApplied: ObjectId
-    identityNo : string   
+    identityNo : number   
     employemntStatus: string
     maritalStatus: string
     numberOfOccupants: number
@@ -28,8 +28,12 @@ const schema = new Schema<ApplicationSubmission, ApplicationSubmissionModel>({
         ref: 'User'
     },
     identityNo: {
-        type: String,
+        type: Number,
         required: true
+    },
+    maritalStatus: {
+        type: String,
+        enum: ['married', 'not married']
     },
     employemntStatus: {
         type: String,
@@ -46,7 +50,6 @@ const schema = new Schema<ApplicationSubmission, ApplicationSubmissionModel>({
     },
     proofOdIdentity: {
         type: Buffer,
-        required: true
     },
     proofOfIncome: {
         type: Buffer,
