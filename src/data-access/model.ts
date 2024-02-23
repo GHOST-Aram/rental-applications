@@ -62,4 +62,5 @@ const schema = new Schema<ApplicationSubmission, ApplicationSubmissionModel>({
 
 export type HydratedApplicationSub = HydratedDocument<ApplicationSubmission>
 
-export default model<ApplicationSubmission, ApplicationSubmissionModel>('ApplicationSubmission', schema)
+export const ApplicationSubmission =  model<ApplicationSubmission, ApplicationSubmissionModel>(
+    'ApplicationSubmission', schema)
