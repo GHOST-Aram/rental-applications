@@ -17,5 +17,7 @@ export const routesWrapper = (controller: Controller): Router =>{
         controller.getOne
     )
 
+    router.get('/', controller.getMany)
+
     return router
 }
