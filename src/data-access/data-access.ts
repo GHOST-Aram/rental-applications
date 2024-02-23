@@ -1,3 +1,4 @@
+import { Paginator } from "../z-library/HTTP/http-response";
 import { GenericDataAccess } from "../z-library/bases/generic-data-access";
 import { ApplicationSubmission, ApplicationSubmissionModel, HydratedApplicationSub } from "./model";
 
@@ -11,7 +12,8 @@ export class DataAccess extends GenericDataAccess<ApplicationSubmissionModel, Ap
         return await this.model.findOne({ tenant: tenantId }, { propertyApplied: propertyId })
     }   
 
-    public findOneByTenantId = async( tenantId: string ): Promise<HydratedApplicationSub | null> =>{
-        return await this.model.findOne({ tenant : tenantId })
+    public findByTenantId = async( tenantId: string, paginator: Paginator 
+        ): Promise<HydratedApplicationSub []> =>{
+        return await this.model.find({ tenant : tenantId })
     }
 }

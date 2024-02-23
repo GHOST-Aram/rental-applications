@@ -27,13 +27,12 @@ export class Controller extends GenericController<DataAccess>{
 
     public  getByTenantId = async(req: Request, res: Response, next: NextFunction) =>{
         const tenantId = req.params.id
+        const pagination = this.paginate(req)
 
         try{
-            const application =  await this.dataAccess.findOneByTenantId(tenantId)
+            const application =  await this.dataAccess.findByTenantId(tenantId, pagination)
 
-            if(application)
-                this.respondWithFoundResource(application, res)
-            this.respondWithNotFound(res)
+            this.respondWithFoundResource(application, res)
         } catch (error) {
             next(error)
         }
