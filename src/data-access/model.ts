@@ -2,6 +2,7 @@ import { ObjectId, Model, Schema, HydratedDocument } from "mongoose";
 
 export interface RentalApplication{
     tenant: ObjectId
+    propertyApplied: ObjectId
     identityNo : string   
     employemntStatus: string
     maritalStatus: string
@@ -16,6 +17,11 @@ export type RentalApplicationModel = Model<RentalApplication>
 
 
 const schema = new Schema<RentalApplication, RentalApplicationModel>({
+    propertyApplied: {
+        type: Schema.Types.ObjectId,
+        ref: 'Rental',
+        required: true
+    },
     tenant: {
         type: Schema.Types.ObjectId,
         required: true,
