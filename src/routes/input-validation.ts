@@ -11,3 +11,11 @@ export const postValidators = [
     validator.validateObjectId('tenant', { required: true}),
     validator.validateObjectId('propertyApplied', { required: true})
 ]   
+
+export const pacthValidators = [
+    validator.validateNumber('identityNo', { required: false}),
+    validator.validateString('maritalStatus', { required: false }),
+    validator.validateString('employmentStatus', { required: false }),
+    validator.validateNumber('numberOfOccupants', { required: false }),
+    validator.validateString('occupation', { required: false }),
+]   
