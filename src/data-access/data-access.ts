@@ -1,8 +1,8 @@
 import { GenericDataAccess } from "../z-library/bases/generic-data-access";
-import { RentalApplication, RentalApplicationModel } from "./model";
+import { ApplicationSubmission, ApplicationSubmissionModel } from "./model";
 
-export class DataAccess extends GenericDataAccess<RentalApplicationModel, RentalApplication>{
-    constructor(model: RentalApplicationModel){
+export class DataAccess extends GenericDataAccess<ApplicationSubmissionModel, ApplicationSubmission>{
+    constructor(model: ApplicationSubmissionModel){
         super(model)
     }
 }

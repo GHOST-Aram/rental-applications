@@ -1,6 +1,6 @@
-import { ObjectId, Model, Schema, HydratedDocument } from "mongoose";
+import { ObjectId, Model, Schema, HydratedDocument, model } from "mongoose";
 
-export interface RentalApplication{
+export interface ApplicationSubmission{
     tenant: ObjectId
     propertyApplied: ObjectId
     identityNo : string   
@@ -13,10 +13,10 @@ export interface RentalApplication{
     applicationStatus: String
 }
 
-export type RentalApplicationModel = Model<RentalApplication>
+export type ApplicationSubmissionModel = Model<ApplicationSubmission>
 
 
-const schema = new Schema<RentalApplication, RentalApplicationModel>({
+const schema = new Schema<ApplicationSubmission, ApplicationSubmissionModel>({
     propertyApplied: {
         type: Schema.Types.ObjectId,
         ref: 'Rental',
@@ -60,4 +60,6 @@ const schema = new Schema<RentalApplication, RentalApplicationModel>({
 })
 
 
-export type HydratedRentApplication = HydratedDocument<RentalApplication>
+export type HydratedApplicationSub = HydratedDocument<ApplicationSubmission>
+
+export default model<ApplicationSubmission, ApplicationSubmissionModel>('ApplicationSubmission', schema)
