@@ -38,6 +38,11 @@ export class DataAccess extends GenericDataAccess
             return generateFakeDocs(paginator.limit)
     })
 
+    public findByPropertyId = jest.fn(
+        async( propertyId: string, paginator: Paginator ): Promise<HydratedApplicationSub[]> =>{
+            return generateFakeDocs(paginator.limit)
+    })
+
     public findWithPagination = jest.fn(async(paginator: Paginator
         ): Promise<HydratedApplicationSub[]> =>{
         return generateFakeDocs(paginator.limit)

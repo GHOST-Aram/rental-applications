@@ -16,4 +16,8 @@ export class DataAccess extends GenericDataAccess<ApplicationSubmissionModel, Ap
         ): Promise<HydratedApplicationSub []> =>{
         return await this.model.find({ tenant : tenantId })
     }
+    public findByPropertyId = async( propertyId: string, paginator: Paginator 
+        ): Promise<HydratedApplicationSub []> =>{
+        return await this.model.find({ property : propertyId })
+    }
 }
