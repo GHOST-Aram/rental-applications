@@ -10,7 +10,15 @@ export const postData = {
 }
 export const invalidData = {
     propertyApplied: new mongoose.mongo.ObjectId(),
-    identityNo : '32639434' ,
+    identityNo : '326343redwaw' ,
     maritalStatus: 'not married',
     numberOfOccupants: 3,
+}
+
+export const patchData = {
+    identityNo : 32639434 ,
+    employmentStatus: 'employed',
+    maritalStatus: 'not married',
+    numberOfOccupants: 3,
+    occupation: 'Software Developer'    
 }
