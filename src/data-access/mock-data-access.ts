@@ -33,6 +33,13 @@ export class DataAccess extends GenericDataAccess
         return null
     })
 
+    public findOneByTenantId = jest.fn(async( tenantId: string ): Promise<HydratedApplicationSub | null> =>{
+        if(tenantId === '64c9e4f2df7cc072af2ac9e0')
+            return new ApplicationSubmission(postData)
+
+        return null
+    })
+
     public findWithPagination = jest.fn(async(paginator: Paginator
         ): Promise<HydratedApplicationSub[]> =>{
         return generateFakeDocs(paginator.limit)

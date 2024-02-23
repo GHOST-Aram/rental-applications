@@ -24,4 +24,18 @@ export class Controller extends GenericController<DataAccess>{
             next(error)
         } 
     }
+
+    public  getByTenantId = async(req: Request, res: Response, next: NextFunction) =>{
+        const tenantId = req.params.id
+
+        try{
+            const application =  await this.dataAccess.findOneByTenantId(tenantId)
+
+            if(application)
+                this.respondWithFoundResource(application, res)
+            this.respondWithNotFound(res)
+        } catch (error) {
+            next(error)
+        }
+    }
 }

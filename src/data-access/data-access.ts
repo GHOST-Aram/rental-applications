@@ -10,4 +10,8 @@ export class DataAccess extends GenericDataAccess<ApplicationSubmissionModel, Ap
         ): Promise<HydratedApplicationSub | null>  =>{
         return await this.model.findOne({ tenant: tenantId }, { propertyApplied: propertyId })
     }   
+
+    public findOneByTenantId = async( tenantId: string ): Promise<HydratedApplicationSub | null> =>{
+        return await this.model.findOne({ tenant : tenantId })
+    }
 }
