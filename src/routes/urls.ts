@@ -35,7 +35,5 @@ export const routesWrapper = (controller: Controller): Router =>{
         controller.updateOne
     )
     
-
-
     return router
 }
